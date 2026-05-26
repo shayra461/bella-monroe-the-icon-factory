@@ -22,7 +22,7 @@ function Apply() {
   return (
     <Layout>
       <section className="relative h-[60vh] overflow-hidden -mt-1">
-        <img src={m4} alt="" className="absolute inset-0 w-full h-full object-cover animate-ken"/>
+        <img src={m4} alt="" className="absolute inset-0 w-full h-full object-cover object-top animate-ken"/>
         <div className="absolute inset-0 bg-foreground/50"/>
         <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-14 max-w-[1600px] mx-auto text-background">
           <div className="eyebrow text-background/80 mb-6">Open Casting</div>
