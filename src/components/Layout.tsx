@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Instagram, Twitter, Facebook, Youtube } from "lucide-react";
+import logoUrl from "@/assets/logo.svg";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -14,10 +15,14 @@ const NAV = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-export function Logo({ className = "" }: { className?: string }) {
+export function Logo({ className = "", invert = false }: { className?: string; invert?: boolean }) {
   return (
-    <Link to="/" className={`font-serif tracking-[0.3em] text-lg md:text-xl uppercase ${className}`}>
-      Bella&nbsp;Monroe
+    <Link to="/" aria-label="Bella Monroe" className={`inline-flex items-center ${className}`}>
+      <img
+        src={logoUrl}
+        alt="Bella Monroe"
+        className={`h-12 md:h-16 w-auto transition-all duration-500 ${invert ? "invert-0" : "invert"}`}
+      />
     </Link>
   );
 }
@@ -38,8 +43,8 @@ export function Header() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || open ? "bg-background/95 backdrop-blur border-b border-border" : "bg-transparent"}`}>
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
-        <Logo />
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10 h-20 md:h-24 flex items-center justify-between">
+        <Logo invert={!scrolled && !open} />
         <nav className="hidden lg:flex items-center gap-8">
           {NAV.map(n => (
             <Link key={n.to} to={n.to} className="eyebrow link-underline" activeProps={{ className: "eyebrow link-underline text-foreground font-semibold" }}>
