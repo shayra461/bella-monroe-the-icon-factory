@@ -34,7 +34,7 @@ function Home() {
   return (
     <Layout>
       {/* HERO */}
-      <section className="relative -mt-24 md:-mt-28 h-[100svh] w-full overflow-hidden bg-foreground text-background">
+      <section className="relative h-[calc(100svh-6rem)] md:h-[calc(100svh-7rem)] w-full overflow-hidden bg-foreground text-background">
         {slides.map((sl, idx) => (
           <div key={idx} className={`absolute inset-0 transition-opacity duration-[1600ms] ${idx === i ? "opacity-100" : "opacity-0"}`}>
             <img src={sl.img} alt="" className="h-full w-full object-cover object-top animate-ken" />
