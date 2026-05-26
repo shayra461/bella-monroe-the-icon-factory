@@ -56,7 +56,7 @@ function Apply() {
               <div className="grid md:grid-cols-2 gap-7">
                 <F label="Full Name"><input required className="in"/></F>
                 <F label="Age"><input required type="number" min="14" className="in"/></F>
-                <F label="Height"><input required placeholder="e.g. 5'10\" / 178cm" className="in"/></F>
+                <F label="Height"><input required placeholder={`e.g. 5'10" / 178cm`} className="in"/></F>
                 <F label="Experience (years)"><input required type="number" min="0" className="in"/></F>
                 <F label="Email"><input required type="email" className="in"/></F>
                 <F label="Phone"><input required className="in"/></F>
