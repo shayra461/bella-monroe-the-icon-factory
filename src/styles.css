@@ -208,5 +208,4 @@
     transition: transform .5s cubic-bezier(.7,0,.2,1);
   }
   .link-underline:hover::after { transform: scaleX(1); transform-origin: left; }
-  }
 }
