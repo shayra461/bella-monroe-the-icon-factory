@@ -126,7 +126,7 @@ export default function Layout({ children, dark = false }: { children: React.Rea
   return (
     <div className={dark ? "bg-foreground text-background min-h-screen" : "bg-background text-foreground min-h-screen"}>
       <Header />
-      <main className="pt-16 md:pt-20">{children}</main>
+      <main className="pt-20 md:pt-24">{children}</main>
       <Footer />
     </div>
   );
