@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CalendarRouteImport } from './routes/calendar'
 import { Route as BookingRouteImport } from './routes/booking'
 import { Route as ApplyRouteImport } from './routes/apply'
@@ -31,6 +32,11 @@ const NewsletterRoute = NewsletterRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CalendarRoute = CalendarRouteImport.update({
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/apply': typeof ApplyRoute
   '/booking': typeof BookingRoute
   '/calendar': typeof CalendarRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/newsletter': typeof NewsletterRoute
   '/services': typeof ServicesRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/apply': typeof ApplyRoute
   '/booking': typeof BookingRoute
   '/calendar': typeof CalendarRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/newsletter': typeof NewsletterRoute
   '/services': typeof ServicesRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/apply': typeof ApplyRoute
   '/booking': typeof BookingRoute
   '/calendar': typeof CalendarRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/newsletter': typeof NewsletterRoute
   '/services': typeof ServicesRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/apply'
     | '/booking'
     | '/calendar'
+    | '/contact'
     | '/gallery'
     | '/newsletter'
     | '/services'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/apply'
     | '/booking'
     | '/calendar'
+    | '/contact'
     | '/gallery'
     | '/newsletter'
     | '/services'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/apply'
     | '/booking'
     | '/calendar'
+    | '/contact'
     | '/gallery'
     | '/newsletter'
     | '/services'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   ApplyRoute: typeof ApplyRoute
   BookingRoute: typeof BookingRoute
   CalendarRoute: typeof CalendarRoute
+  ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
   NewsletterRoute: typeof NewsletterRoute
   ServicesRoute: typeof ServicesRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/calendar': {
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApplyRoute: ApplyRoute,
   BookingRoute: BookingRoute,
   CalendarRoute: CalendarRoute,
+  ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
   NewsletterRoute: NewsletterRoute,
   ServicesRoute: ServicesRoute,
