@@ -80,7 +80,7 @@ export function Footer() {
     <footer className="bg-foreground text-background mt-32">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-20 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <div className="font-serif uppercase tracking-[0.3em] text-2xl">Bella Monroe</div>
+          <img src={logoUrl} alt="Bella Monroe" className="h-20 md:h-24 w-auto" />
           <p className="mt-6 max-w-md text-background/70 leading-relaxed">
             A luxury fashion house and talent development agency. Editorial campaigns, runway production,
             and the elevation of new faces into industry-ready icons.
