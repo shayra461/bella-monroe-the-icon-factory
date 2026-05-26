@@ -37,7 +37,7 @@ function Home() {
       <section className="relative -mt-16 md:-mt-20 h-[100svh] w-full overflow-hidden bg-foreground text-background">
         {slides.map((sl, idx) => (
           <div key={idx} className={`absolute inset-0 transition-opacity duration-[1600ms] ${idx === i ? "opacity-100" : "opacity-0"}`}>
-            <img src={sl.img} alt="" className="h-full w-full object-cover animate-ken" />
+            <img src={sl.img} alt="" className="h-full w-full object-cover object-top animate-ken" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70" />
           </div>
         ))}
