@@ -29,22 +29,14 @@ export function Logo({ className = "", invert = false }: { className?: string; i
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const path = useRouterState({ select: s => s.location.pathname });
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => { setOpen(false); }, [path]);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || open ? "bg-background/95 backdrop-blur border-b border-border" : "bg-transparent"}`}>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 h-24 md:h-28 flex items-center justify-between">
-        <Logo invert={!scrolled && !open} />
+        <Logo invert={false} />
         <nav className="hidden lg:flex items-center gap-8">
           {NAV.map(n => (
             <Link key={n.to} to={n.to} className="eyebrow link-underline" activeProps={{ className: "eyebrow link-underline text-foreground font-semibold" }}>
