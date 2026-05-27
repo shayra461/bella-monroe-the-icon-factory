@@ -52,8 +52,13 @@ function Contact() {
           <div>
             <div className="eyebrow text-muted-foreground mb-4">Follow</div>
             <div className="flex gap-5">
-              {[Instagram, Twitter, Facebook, Youtube].map((Icon, i) => (
-                <a key={i} href="#" className="hover:opacity-60 transition"><Icon size={18}/></a>
+              {[
+                { Icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+                { Icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+                { Icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+                { Icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+              ].map(({ Icon, href, label }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="hover:opacity-60 transition"><Icon size={18}/></a>
               ))}
             </div>
           </div>

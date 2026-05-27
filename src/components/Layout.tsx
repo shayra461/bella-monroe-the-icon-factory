@@ -79,8 +79,13 @@ export function Footer() {
             and the elevation of new faces into industry-ready icons.
           </p>
           <div className="flex gap-5 mt-8">
-            {[Instagram, Twitter, Facebook, Youtube].map((Icon, i) => (
-              <a key={i} href="#" className="opacity-70 hover:opacity-100 transition" aria-label="social">
+            {[
+              { Icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+              { Icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+              { Icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+              { Icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+            ].map(({ Icon, href, label }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition" aria-label={label}>
                 <Icon size={18}/>
               </a>
             ))}

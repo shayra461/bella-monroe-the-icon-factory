@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import m1 from "@/assets/model-1.jpg";
@@ -63,7 +63,7 @@ function CalendarPage() {
               <p className="text-muted-foreground mt-4 leading-relaxed">
                 An invitation-only experience. Limited seats remain — request access through the house concierge.
               </p>
-              <button className="eyebrow mt-6 bg-foreground text-background px-6 py-3 hover:opacity-90">Request Access</button>
+              <Link to="/contact" className="eyebrow mt-6 inline-block bg-foreground text-background px-6 py-3 hover:opacity-90">Request Access</Link>
             </div>
           )}
         </aside>
