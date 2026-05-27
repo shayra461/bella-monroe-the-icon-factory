@@ -94,8 +94,8 @@ function About() {
       {/* TEAM */}
       <section className="bg-soft-gray py-28 px-6 md:px-14">
         <div className="max-w-[1600px] mx-auto">
-          <div className="eyebrow text-muted-foreground mb-6">The Team</div>
-          <h2 className="font-serif text-5xl md:text-7xl mb-16">Faces of the house.</h2>
+          <div className="eyebrow text-muted-foreground mb-6">Meet the BM Team</div>
+          <h2 className="font-serif text-5xl md:text-7xl mb-16">Meet the BM Team.</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { img: m2, name: "Bella Monroe", role: "Founder & Creative Director" },
@@ -112,6 +112,20 @@ function About() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ABOUT ME */}
+      <section className="py-28 px-6 md:px-14 max-w-[900px] mx-auto text-center">
+        <div className="hover-zoom aspect-square w-56 md:w-72 mx-auto mb-10 rounded-full overflow-hidden">
+          <img src={m2} alt="Bella Monroe" className="w-full h-full object-cover"/>
+        </div>
+        <div className="eyebrow text-muted-foreground mb-6">About Me</div>
+        <h2 className="font-serif text-4xl md:text-6xl leading-[1.05] mb-8">Bella Monroe</h2>
+        <p className="text-muted-foreground leading-relaxed text-lg">
+          Founder &amp; Creative Director of the Bella Monroe Agency. I built this
+          house to give emerging talent the structure, elegance, and opportunity
+          they deserve — turning new faces into industry-ready icons.
+        </p>
       </section>
     </Layout>
   );
