@@ -162,6 +162,26 @@ function Home() {
           </form>
         </div>
       </section>
+
+      {/* DONATE */}
+      <section className="px-6 md:px-14 max-w-[1600px] mx-auto py-24">
+        <div className="bg-soft-gray p-10 md:p-16 text-center">
+          <div className="eyebrow text-muted-foreground mb-4">Support the House</div>
+          <h2 className="font-serif text-4xl md:text-5xl leading-[1.05] max-w-2xl mx-auto">
+            Help us elevate the next generation of talent.
+          </h2>
+          <p className="mt-6 max-w-xl mx-auto text-muted-foreground leading-relaxed">
+            Your contribution funds scholarships, runway training, and production
+            opportunities for emerging models.
+          </p>
+          <Link
+            to="/contact"
+            className="eyebrow mt-8 inline-flex items-center gap-3 border border-foreground px-6 py-4 hover:bg-foreground hover:text-background transition"
+          >
+            Donate now <ArrowRight size={14} />
+          </Link>
+        </div>
+      </section>
     </Layout>
   );
 }
