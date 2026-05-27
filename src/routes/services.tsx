@@ -54,7 +54,11 @@ function Services() {
           </div>
           <div className="md:text-right">
             <div className="font-serif text-5xl">$45<span className="text-base text-muted-foreground"> / 20 min</span></div>
-            <Link to="/contact" className="eyebrow mt-6 inline-flex items-center gap-3 border border-foreground px-6 py-4 hover:bg-foreground hover:text-background transition">
+            <Link
+              to="/checkout"
+              search={{ item: "20-min Consultation", amount: "45" }}
+              className="eyebrow mt-6 inline-flex items-center gap-3 border border-foreground px-6 py-4 hover:bg-foreground hover:text-background transition"
+            >
               Pay & book consultation <ArrowRight size={14}/>
             </Link>
           </div>
@@ -93,7 +97,11 @@ function Services() {
                 Delivered by a dedicated team of producers, stylists, and creative directors —
                 in the editorial language Bella Monroe is known for.
               </p>
-              <Link to="/contact" className="eyebrow inline-flex items-center gap-3 border border-foreground px-6 py-3 hover:bg-foreground hover:text-background transition">
+              <Link
+                to="/checkout"
+                search={{ item: active.t, amount: "500" }}
+                className="eyebrow inline-flex items-center gap-3 border border-foreground px-6 py-3 hover:bg-foreground hover:text-background transition"
+              >
                 Pay & book <ArrowRight size={14}/>
               </Link>
             </div>
