@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import m1 from "@/assets/model-1.jpg";
