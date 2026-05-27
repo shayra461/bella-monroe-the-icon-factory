@@ -133,48 +133,62 @@ function Membership() {
       {/* Bronze */}
       <section className="px-6 md:px-14 max-w-[1600px] mx-auto pb-24">
         <div className="border-t border-border pt-16">
-          <div className="eyebrow text-muted-foreground mb-4">02 — Bronze Membership</div>
+          <div className="eyebrow text-muted-foreground mb-4">02 — Bronze Membership Package</div>
           <h2 className="font-serif text-5xl md:text-6xl leading-[1] max-w-3xl">Runway Training Only</h2>
-          <p className="mt-6 max-w-2xl text-muted-foreground leading-relaxed">
+          <p className="mt-6 max-w-2xl text-foreground/80 leading-relaxed text-lg">
             Focused development for walk, posture, stage presence, and runway confidence.
-            Choose your format and session count.
           </p>
 
-          {/* Format selector */}
-          <div className="mt-12 flex flex-wrap gap-3">
-            {FORMATS.map(f => (
-              <button
-                key={f.id}
-                onClick={() => setFormat(f.id)}
-                className={`eyebrow px-5 py-3 border transition-colors duration-300 ${
-                  format === f.id
-                    ? "bg-foreground text-background border-foreground"
-                    : "border-border hover:border-foreground"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
+          {/* Single Sessions — all four formats shown */}
+          <div className="mt-14">
+            <div className="eyebrow text-muted-foreground mb-6">Single Sessions</div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {FORMATS.map(f => (
+                <div key={f.id} className="bg-soft-gray p-6">
+                  <div className="eyebrow text-muted-foreground">{f.label}</div>
+                  <div className="font-serif text-4xl mt-3">
+                    ${f.single}
+                    {f.perPerson && <span className="text-sm text-muted-foreground"> per person</span>}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Single session */}
-          <div className="mt-10 grid md:grid-cols-[1fr_1.5fr] gap-10">
-            <div className="bg-soft-gray p-8">
-              <div className="eyebrow text-muted-foreground mb-3">Single Session</div>
-              <div className="font-serif text-5xl">
-                ${active.single}
-                <span className="text-sm text-muted-foreground"> {active.perPerson ? "per person" : ""}</span>
-              </div>
-              <div className="text-sm text-muted-foreground mt-3">{active.label}</div>
-              <Link to="/booking" className="eyebrow mt-8 inline-flex items-center gap-3 border border-foreground px-5 py-3 hover:bg-foreground hover:text-background transition">
-                Book single <ArrowRight size={14}/>
-              </Link>
+          {/* Bundle selector */}
+          <div className="mt-16">
+            <div className="eyebrow text-muted-foreground mb-6">Session Bundles — choose a format</div>
+            <div className="flex flex-wrap gap-3">
+              {FORMATS.map(f => {
+                const groupLabel =
+                  f.id === "in-person-private" ? "In-Person Bundles (Private)" :
+                  f.id === "virtual-private" ? "Virtual Bundles (Private)" :
+                  f.id === "in-person-group" ? "Group Bundles (In-Person)" :
+                  "Group Bundles (Virtual)";
+                return (
+                  <button
+                    key={f.id}
+                    onClick={() => setFormat(f.id)}
+                    className={`eyebrow px-5 py-3 border transition-colors duration-300 ${
+                      format === f.id
+                        ? "bg-foreground text-background border-foreground"
+                        : "border-border hover:border-foreground"
+                    }`}
+                  >
+                    {groupLabel}
+                  </button>
+                );
+              })}
             </div>
 
-            {/* Bundles */}
-            <div>
-              <div className="eyebrow text-muted-foreground mb-5">Session Bundles</div>
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="mt-8">
+              <div className="font-serif text-2xl mb-5">
+                {active.id === "in-person-private" && "In-Person Bundles (Private)"}
+                {active.id === "virtual-private" && "Virtual Bundles (Private)"}
+                {active.id === "in-person-group" && "Group Bundles (In-Person)"}
+                {active.id === "virtual-group" && "Group Bundles (Virtual)"}
+              </div>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
                 {bundles.map(b => (
                   <Link
                     key={b.n}
@@ -182,16 +196,16 @@ function Membership() {
                     className="group border border-border p-5 hover:border-foreground transition-colors"
                   >
                     <div className="eyebrow text-muted-foreground">{b.n} Sessions</div>
-                    <div className="font-serif text-3xl mt-2">
+                    <div className="font-serif text-2xl mt-2">
                       ${b.p.toLocaleString()}
-                      {active.perPerson && <span className="text-xs text-muted-foreground"> /person</span>}
-                    </div>
-                    <div className="mt-4 flex items-center gap-2 text-xs eyebrow opacity-0 group-hover:opacity-100 transition">
-                      Select <ArrowRight size={12}/>
+                      {active.perPerson && <span className="text-xs text-muted-foreground"> per person</span>}
                     </div>
                   </Link>
                 ))}
               </div>
+              <Link to="/booking" className="eyebrow mt-8 inline-flex items-center gap-3 border border-foreground px-6 py-4 hover:bg-foreground hover:text-background transition">
+                Book Bronze sessions <ArrowRight size={14}/>
+              </Link>
             </div>
           </div>
         </div>
