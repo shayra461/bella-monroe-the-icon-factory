@@ -41,6 +41,26 @@ function Services() {
         <h1 className="font-serif text-[12vw] md:text-[8vw] leading-[0.95]">Services<br/><em className="text-silver">of the house.</em></h1>
       </section>
 
+      {/* Consultation */}
+      <section className="px-6 md:px-14 max-w-[1600px] mx-auto pb-16">
+        <div className="border-t border-border pt-12 grid md:grid-cols-[1.2fr_1fr] gap-8 items-center bg-soft-gray p-8 md:p-12">
+          <div>
+            <div className="eyebrow text-muted-foreground mb-3">Start here</div>
+            <h2 className="font-serif text-4xl md:text-5xl leading-[1.05]">Book a consultation.</h2>
+            <p className="mt-4 text-muted-foreground max-w-md leading-relaxed">
+              A focused 20-minute call to scope your goals, format, and the right
+              path inside the house.
+            </p>
+          </div>
+          <div className="md:text-right">
+            <div className="font-serif text-5xl">$45<span className="text-base text-muted-foreground"> / 20 min</span></div>
+            <Link to="/contact" className="eyebrow mt-6 inline-flex items-center gap-3 border border-foreground px-6 py-4 hover:bg-foreground hover:text-background transition">
+              Pay & book consultation <ArrowRight size={14}/>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="px-6 md:px-14 max-w-[1600px] mx-auto pb-32">
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-2 border-t border-border">
           {SERVICES.map((s) => (
@@ -73,8 +93,8 @@ function Services() {
                 Delivered by a dedicated team of producers, stylists, and creative directors —
                 in the editorial language Bella Monroe is known for.
               </p>
-              <Link to="/booking" className="eyebrow inline-flex items-center gap-3 border border-foreground px-6 py-3 hover:bg-foreground hover:text-background transition">
-                Inquire <ArrowRight size={14}/>
+              <Link to="/contact" className="eyebrow inline-flex items-center gap-3 border border-foreground px-6 py-3 hover:bg-foreground hover:text-background transition">
+                Pay & book <ArrowRight size={14}/>
               </Link>
             </div>
           </div>
