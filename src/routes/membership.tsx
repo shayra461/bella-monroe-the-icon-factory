@@ -231,7 +231,11 @@ function Membership() {
                   <div className="eyebrow">{s.p}</div>
                 </div>
                 <p className="text-muted-foreground mt-3 text-sm leading-relaxed">{s.d}</p>
-                <Link to="/contact" className="eyebrow mt-6 inline-flex items-center gap-3 border border-foreground px-5 py-3 hover:bg-foreground hover:text-background transition">
+                <Link
+                  to="/checkout"
+                  search={{ item: s.t, amount: s.p.replace(/[^0-9]/g, "") || "500" }}
+                  className="eyebrow mt-6 inline-flex items-center gap-3 border border-foreground px-5 py-3 hover:bg-foreground hover:text-background transition"
+                >
                   Hire our production team <ArrowRight size={14}/>
                 </Link>
               </div>
