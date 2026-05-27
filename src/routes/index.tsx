@@ -127,9 +127,9 @@ function Home() {
         <img src={m4} alt="" className="absolute inset-0 w-full h-full object-cover object-top"/>
         <div className="absolute inset-0 bg-black/40"/>
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-background">
-          <button className="h-20 w-20 rounded-full border border-background/60 flex items-center justify-center hover:bg-background hover:text-foreground transition">
+          <Link to="/gallery" aria-label="Watch the film" className="h-20 w-20 rounded-full border border-background/60 flex items-center justify-center hover:bg-background hover:text-foreground transition">
             <Play size={22}/>
-          </button>
+          </Link>
           <div className="font-serif text-3xl md:text-5xl mt-8 text-center px-6">The Bella Monroe Film — 2026</div>
           <div className="eyebrow mt-4 text-background/70">Directed in Paris</div>
         </div>
