@@ -62,9 +62,9 @@ const PLATINUM_INCLUDES = [
 ];
 
 const PRODUCTION = [
-  { t: "Basic Production Support", p: "Starting at $500", d: "Essential on-site support for intimate presentations and small shows." },
-  { t: "Full Show Coordination", p: "Starting at $1,000", d: "End-to-end coordination of talent, run-of-show, and backstage logistics." },
-  { t: "Full Production Direction", p: "$1,500+", d: "Creative and technical direction of cinematic runway experiences." },
+  { t: "Basic Production Support", p: "Starting at $500 / day", d: "Essential on-site support for intimate presentations and small shows." },
+  { t: "Full Show Coordination", p: "Starting at $1,000 / day", d: "End-to-end coordination of talent, run-of-show, and backstage logistics." },
+  { t: "Full Production Direction", p: "$1,500+ / day", d: "Creative and technical direction of cinematic runway experiences." },
 ];
 
 function Membership() {
