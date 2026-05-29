@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Check, Upload } from "lucide-react";
+import { Check, Lock } from "lucide-react";
 import Layout from "@/components/Layout";
 import m2 from "@/assets/model-2.jpg";
 import m4 from "@/assets/model-4.jpg";
@@ -48,31 +48,99 @@ function Apply() {
               <div className="h-16 w-16 rounded-full bg-foreground text-background flex items-center justify-center mb-8"><Check/></div>
               <div className="eyebrow text-muted-foreground mb-3">Received</div>
               <h2 className="font-serif text-4xl md:text-5xl mb-6">Thank you.</h2>
-              <p className="text-muted-foreground">Our casting team will reach out within two weeks if your profile aligns with our current selection.</p>
+              <p className="text-muted-foreground mb-8">Your application has been received. To complete your submission, please pay the non-refundable $30 application fee.</p>
+              <Link
+                to="/checkout"
+                search={{ item: "Model & Talent Development Application Fee", amount: "30" }}
+                className="eyebrow inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 hover:opacity-90 transition"
+              >
+                <Lock size={14}/> Pay Application Fee — $30
+              </Link>
+              <p className="text-xs text-muted-foreground mt-4">Non-refundable. Supports the administrative processing and coordination of all auditions.</p>
             </div>
           ) : (
             <form className="space-y-7 max-w-2xl" onSubmit={(e) => { e.preventDefault(); setDone(true); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
-              <h2 className="font-serif text-4xl mb-2">Application</h2>
-              <div className="grid md:grid-cols-2 gap-7">
-                <F label="Full Name"><input required className="in"/></F>
-                <F label="Age"><input required type="number" min="14" className="in"/></F>
-                <F label="Height"><input required placeholder={`e.g. 5'10" / 178cm`} className="in"/></F>
-                <F label="Experience (years)"><input required type="number" min="0" className="in"/></F>
-                <F label="Email"><input required type="email" className="in"/></F>
-                <F label="Phone"><input required className="in"/></F>
-                <F label="Instagram"><input className="in" placeholder="@handle"/></F>
-                <F label="Portfolio URL"><input className="in" placeholder="https://"/></F>
-              </div>
-              <F label="Why Bella Monroe?"><textarea rows={4} className="in resize-none"/></F>
               <div>
-                <div className="eyebrow text-muted-foreground mb-3">Upload Photos</div>
-                <label className="border border-dashed border-foreground/40 p-8 flex flex-col items-center gap-3 cursor-pointer hover:bg-soft-gray transition">
-                  <Upload size={20}/>
-                  <div className="eyebrow">Drop files or click to upload</div>
-                  <input type="file" multiple className="hidden"/>
-                </label>
+                <h2 className="font-serif text-4xl mb-3">Model &amp; Talent Development Application</h2>
+                <div className="eyebrow text-muted-foreground mb-4">About this program</div>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  Bella Monroe Productions is a modeling and talent development production company focused on training, education, branding, and professional growth opportunities within fashion, media, and entertainment.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  We are not a competitive modeling or pageant organization, and participation is centered on development, experience-building, and production opportunities rather than competition.
+                </p>
               </div>
-              <button className="eyebrow bg-foreground text-background px-8 py-4 hover:opacity-90 w-full md:w-auto">Submit Application</button>
+
+              <div className="border border-foreground/20 p-5 bg-soft-gray">
+                <div className="eyebrow mb-2">Application Fee — $30</div>
+                <p className="text-xs text-muted-foreground">Non-refundable. Supports the administrative processing and coordination of all auditions. Payment is collected after you submit this form.</p>
+              </div>
+
+              <Section title="Personal Information">
+                <div className="grid md:grid-cols-2 gap-7">
+                  <F label="Full Name"><input required className="in"/></F>
+                  <F label="Age"><input required type="number" min="14" className="in"/></F>
+                  <F label="Phone Number"><input required className="in"/></F>
+                  <F label="City Currently Living In"><input required className="in"/></F>
+                  <F label="Email"><input required type="email" className="in"/></F>
+                </div>
+              </Section>
+
+              <Section title="Experience & Background">
+                <F label="Are you currently part of any modeling or talent development program?">
+                  <Radios name="current_program" options={["Yes", "No"]}/>
+                </F>
+                <F label="If yes, please list:"><input className="in"/></F>
+                <F label="Do you consider yourself a creative?">
+                  <Radios name="creative" options={["Yes", "No"]}/>
+                </F>
+                <F label="If yes, what do you do? (check all that apply)">
+                  <div className="grid sm:grid-cols-2 gap-2 pt-2">
+                    {["Content Creator","Photographer","Actor","Stylist / Fashion","Music Artist","Choreographer"].map(o => (
+                      <label key={o} className="flex items-center gap-2 text-sm"><input type="checkbox" className="accent-foreground"/> {o}</label>
+                    ))}
+                  </div>
+                </F>
+                <F label="Other"><input className="in"/></F>
+                <F label="Explain"><textarea rows={3} className="in resize-none"/></F>
+              </Section>
+
+              <Section title="Talent Category">
+                <F label="Which best describes you?">
+                  <Radios name="category" options={["Model", "Dancer", "Both", "Other"]}/>
+                </F>
+                <F label="Other"><input className="in"/></F>
+              </Section>
+
+              <Section title="Interest & Commitment">
+                <F label="Are you interested in participating in a structured training and development program if selected?">
+                  <Radios name="interested" options={["Yes", "No", "Maybe"]}/>
+                </F>
+                <F label="Our programs may include participation fees depending on training, production, and development opportunities. Would you be open to learning more about program investment requirements?">
+                  <Radios name="investment" options={["Yes", "No", "Maybe"]}/>
+                </F>
+              </Section>
+
+              <Section title="Goals">
+                <F label="Why do you want to join Bella Monroe Productions?"><textarea rows={4} className="in resize-none"/></F>
+                <F label="What are your modeling or entertainment goals?"><textarea rows={4} className="in resize-none"/></F>
+              </Section>
+
+              <Section title="Agreement & Confirmation">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  I confirm that the information provided is true and accurate to the best of my knowledge. I understand that Bella Monroe Productions is a modeling and talent development production company focused on training, branding, and professional opportunities, and is not a competitive modeling or pageant organization. I understand that participation may include structured development programs, training sessions, and production opportunities, and that program investment requirements may apply depending on placement.
+                </p>
+                <label className="flex items-start gap-3 text-sm pt-2">
+                  <input required type="checkbox" className="mt-1 accent-foreground"/>
+                  <span>I agree to the statement above.</span>
+                </label>
+                <div className="grid md:grid-cols-2 gap-7 pt-2">
+                  <F label="Signature (type full name)"><input required className="in"/></F>
+                  <F label="Date"><input required type="date" className="in"/></F>
+                </div>
+              </Section>
+
+              <button className="eyebrow bg-foreground text-background px-8 py-4 hover:opacity-90 w-full md:w-auto">Submit & Continue to Payment</button>
             </form>
           )}
         </div>
@@ -85,4 +153,25 @@ function Apply() {
 
 function F({ label, children }: { label: string; children: React.ReactNode }) {
   return (<label className="block"><div className="eyebrow text-muted-foreground mb-2">{label}</div>{children}</label>);
+}
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="pt-6 border-t border-border space-y-5">
+      <div className="eyebrow">{title}</div>
+      {children}
+    </div>
+  );
+}
+
+function Radios({ name, options }: { name: string; options: string[] }) {
+  return (
+    <div className="flex flex-wrap gap-5 pt-2">
+      {options.map(o => (
+        <label key={o} className="flex items-center gap-2 text-sm">
+          <input type="radio" name={name} className="accent-foreground"/> {o}
+        </label>
+      ))}
+    </div>
+  );
 }
