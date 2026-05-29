@@ -94,22 +94,69 @@ function About() {
       {/* TEAM */}
       <section className="bg-soft-gray py-28 px-6 md:px-14">
         <div className="max-w-[1600px] mx-auto">
-          <div className="eyebrow text-muted-foreground mb-6">Meet the BM Team</div>
-          <h2 className="font-serif text-5xl md:text-7xl mb-16">Meet the BM Team.</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { img: m2, name: "Bella Monroe", role: "Founder & Creative Director" },
-              { img: m3, name: "Imani Hart", role: "Head of Talent" },
-              { img: m1, name: "Naomi Cole", role: "Director of Production" },
-            ].map((p) => (
-              <div key={p.name}>
-                <div className="hover-zoom aspect-[3/4] mb-5">
-                  <img src={p.img} alt={p.name} className="w-full h-full object-cover grayscale"/>
-                </div>
-                <div className="font-serif text-2xl">{p.name}</div>
-                <div className="eyebrow text-muted-foreground mt-1">{p.role}</div>
+          <div className="eyebrow text-muted-foreground mb-6">Meet the BMP Crew</div>
+          <h2 className="font-serif text-5xl md:text-7xl mb-16">Meet the BMP Crew.</h2>
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20">
+            <article>
+              <div className="font-serif text-3xl md:text-4xl mb-2">Jamaal Fuller-Bey</div>
+              <div className="eyebrow text-muted-foreground mb-6">Production Professional</div>
+              <div className="space-y-5 text-muted-foreground leading-relaxed">
+                <p>
+                  Jamaal Fuller-Bey is a production professional with experience across live television,
+                  global music festivals, stadium-scale productions, and international touring. Credits
+                  include serving as a Production Assistant on major productions such as the MTV Video
+                  Music Awards (VMAs), Global Citizen Festival, and a ton of music festivals, the Emmy
+                  Award-winning Savage x Fenty Vol. 4, and the Rihanna's two-time Emmy Award-winning
+                  Super Bowl LVII Halftime Show. Additional experience includes working as Back of House
+                  Quartermaster for the Emmy Award-winning Beyoncé Bowl.
+                </p>
+                <p>
+                  In touring, has supported large-scale arena and world tours as Back of House
+                  Coordinator for Kid Cudi's To The Moon World Tour and the North American leg of SZA's
+                  SOS Tour. Recognized for strong logistics coordination, fast-paced production support,
+                  artist and crew operations, and delivering seamless execution in high-pressure live
+                  entertainment environments.
+                </p>
               </div>
-            ))}
+            </article>
+
+            <article>
+              <div className="font-serif text-3xl md:text-4xl mb-2">Jhante' Belt</div>
+              <div className="eyebrow text-muted-foreground mb-6">Casting Director &amp; Creative Producer</div>
+              <div className="space-y-5 text-muted-foreground leading-relaxed">
+                <p>
+                  Jhante' Belt is an energized, creative, and detailed-oriented entertainment
+                  professional with a strong passion for music, talent development, and creative
+                  production.
+                </p>
+                <p>
+                  As a casting director, Jhante' specializes in identifying diverse talent, coordinating
+                  auditions, and creating authentic, engaging casts for film, television, stage
+                  productions, and live events. She is committed to delivering seamless execution while
+                  fostering a positive and inspiring creative environment. With over 20 years of
+                  experience in entertainment and 15 years in production, she has built a diverse
+                  background in dancing, modeling, singing, background vocals, staging, staffing, and
+                  talent acquisition.
+                </p>
+                <p>
+                  Known for her creativity, professionalism, and eye for talent, Jhante' is dedicated to
+                  helping others discover, develop, and elevate their gifts. To name a few projects and
+                  assignments completed by Jhante': Interning for Washington D.C.'s own WPGC, WKYS, and
+                  WHUR, she has gained substantial experience while networking with others in the
+                  industry. Jhante' was recently accepted into a creative cohort. Mayor Bowser's "202
+                  Creates" residency program to network and expand her nonprofit organization dedicated
+                  to youth and adults here in the city, "Jus Jai Foundation."
+                </p>
+                <p>
+                  Her experience includes coordinating auditions/events/productions with local and
+                  out-of-town companies/agencies, reserving and scouting event spaces or venues for
+                  production, hosting small business expos, brand development, and supporting live
+                  entertainment &amp; promotion environments, while collaborating with creatives to bring
+                  visions to life with excellence and organization. She is dedicated to maintaining a
+                  professional and organized production process no matter what.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
